@@ -259,7 +259,7 @@ collection = db["Restaurents"]
 #         print("evolves")
 
 
-l = [[1,2,3],[4,5,6],[7,8,9]]
+l = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 # for i in range(len(l)):
 #     for j in range(len(l)):
 #         if i==j:
@@ -271,7 +271,6 @@ a = [l[i][i] for i in range(len(l))]
 # print(a)
 #
 #
-
 
 
 # for x in range(0,len(m)):
@@ -287,10 +286,126 @@ a = [l[i][i] for i in range(len(l))]
 #                print(m[i][j])
 
 
-m = [[1, 2, 3],
-     [4, 5, 6],
-     [7, 8, 9]]
-no = [m[i][j] for i in range(len(m)) for j in range(len(m)) if i+j == 2]
-print(no)
+# m = [[1, 2, 3],
+#      [4, 5, 6],
+#      [7, 8, 9]]
+# no = [m[i][j] for i in range(len(m)) for j in range(len(m)) if i+j == 2]
+# print(no)
+#
+# s = [1, 2, 3, 4]
+# b = s[0]
+# c = s[3]
+# s[0] = c
+# s[3] = b
+# print(s)
+
+
+# overs = [5, 7, 2, 3, 5] swap 7 and 2 with each other
+# overs = [5, 7, 2, 3, 5]
+# print(overs)
+# x = overs.pop(1)
+# y = overs.pop(1)
+# print(overs)
+# k = overs.insert(1,x)
+# l = overs.insert(1,y)
+# print(overs)
+
+# components = ["thread", "ropes", "clothes", "WaterCans", "Matchbox"]
+# count = 0
+# for i in components:
+#     # print(i)
+#     count = count + 1
+#
+# print(count)
+#     # if i:
+#     # count +=1
+#     # print(count)
+
+
+# a = list(string1)
+# print(a)
+# b = a[:len(a)//2]
+# c = a[len(a)//2:]
+# d = a[len(a)::-1]
+# e = d[len(d)//2:]
+# print(e)
+# print(d)
+# print(b)
+# print(c)
+# if b == c:
+#      print("It is a symmetrical word")
+# else:
+#      print("Not symmetrical")
+
+
+# string1 = "toltol"
+#
+# a = list(string1)
+# print(a)
+# b = a[len(a) // 2:]
+# print(b)
+# c = a[:len(a) // 2]
+# print(c)
+# d = c[::-1]
+# print(d)
+#
+# if b == c and c==d:
+#     print("Palindrome")
+#
+# elif b == c:
+#     print("Symmetrical string")
+#
+# elif b != c:
+#     print("Asymmetrical")
+#
+
+
+
+
+#
+# a = "My magic is never giving up"
+# b = list(a.split(" "))
+# print(b[::-1])
+
+
+# a = "And that's how gods are created"
+# l = a.replace(" ", "")
+# print(a)
+# print(l)
+# n = (list(l))
+# n.remove(n[6])
+# print(str(n))
+# j = "".join(n)
+# print(j)
+
+#
+# p = [1,2,3,4]
+# b = [(i, i**2) for i in p]
+# print(b)
+#
+
+# a = {'ravi': 10, 'rajnish': 9, 'sanjeev': 15, 'yash': 2, 'suraj': 32}
+# b = list(a.keys())
+# b.sort()
+# k = {i : a[i] for i in a }
+# print(k)
+
+a = {}
+a[2] = 90
+a[3] = 80
+a[6] = 87
+a[1] = 99
+
+print(a)
+b = (list(a.keys()))
+b.sort()
+print(b)
+j = {i: a[i] for i in b}
+print(j)
+
+
+
+
+
 
 

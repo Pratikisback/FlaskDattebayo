@@ -47,7 +47,7 @@ class login(Resource):
 
 class remove_user(Resource):
 
-    @jwt_required()
+    @jwt_required
     def post(self):
         data = request.get_json()
         username = data.get("username")
