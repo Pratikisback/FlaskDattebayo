@@ -1,5 +1,7 @@
+from datetime import timedelta
+
 from newone.register.controller import find_user, reg_user, rm_user
-from newone import api, Resource, make_response, app
+from newone import api, Resource, make_response, app, JWT_ACCESS_TOKEN_TIMEDELTA
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required
 
@@ -8,23 +10,23 @@ regblue = Blueprint('registerblue', __name__)
 
 class Register(Resource):
     def post(self):
+        try:
+            data = request.get_json()
 
-        data = request.get_json()
-
-        username = data.get('username')
-        password = data.get('password')
-        if not username and not password:
-            return make_response(jsonify({"message": 'User already exists'}), 200)
-        existing_user = find_user(username)
-        print(existing_user)
-        if existing_user:
-            return make_response(jsonify({"message": 'User already exists'}), 200)
-        new_user = {"username": username, "password": password}
-        result = reg_user(new_user)
-        if result:
-            return make_response(jsonify(
-                {"Message": "User registered successfully", "userName": username, "userid": str(result.inserted_id)}))
-
+            username = data.get('username')
+            password = data.get('password')
+            if not username and not password:
+                return make_response(jsonify({"message": "User not found"}), 200)
+            existing_user = find_user(username)
+            if existing_user:
+                return make_response(jsonify({"message": 'User already exists'}), 200)
+            new_user = {"username": username, "password": password}
+            result = reg_user(new_user)
+            if result:
+                return make_response(jsonify(
+                    {"Message": "User registered successfully", "userName": username, "userid": str(result.inserted_id)}))
+        except Exception as e:
+            print(e)
 
 class login(Resource):
     def post(self):
@@ -38,7 +40,7 @@ class login(Resource):
         passworddb = userinfo.get("password")
 
         if username == usernamedb and password == passworddb:
-            access_token = create_access_token(identity=username)
+            access_token = create_access_token(identity=username, expires_delta= JWT_ACCESS_TOKEN_TIMEDELTA)
             return make_response(jsonify({"Message": "User logged in successfully", "Access_Token": access_token}))
         else:
             return make_response(jsonify({"Message": "Invalid Credentials"}))
@@ -47,7 +49,7 @@ class login(Resource):
 
 class remove_user(Resource):
 
-    @jwt_required
+    @jwt_required()
     def post(self):
         data = request.get_json()
         username = data.get("username")
@@ -66,9 +68,9 @@ class remove_user(Resource):
             return make_response(jsonify({"Message": "user deleted"}))
 
 
-class updateUsername(Resource):
-    def post(self, username):
-        pass
+# class updateUsername(Resource):
+#     def post(self, username):
+#         pass
 
 
 
