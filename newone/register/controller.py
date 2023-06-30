@@ -5,7 +5,7 @@ def find_user(username):
     print(username)
     result = client.Employees.Users.find_one({"username": username})
     if result:
-        return True
+        return result
     else:
         return False
 
@@ -21,7 +21,7 @@ def rm_user(username):
     print(result.deleted_count)
     return result
 
-def update_user(username):
-    result = client.Employees.Users.update_one({"username": username}, )
-    return result
 
+def update_user_pwd(username, password):
+    result = client.Employees.Users.update_one({"username": username}, {"$set": {"password": password}})
+    return result
