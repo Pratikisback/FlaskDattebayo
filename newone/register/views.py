@@ -48,7 +48,7 @@ class Login(Resource):
             return make_response(jsonify({"Message": "Invalid Credentials"}))
 
 
-class removeUser(Resource):
+class RemoveUser(Resource):
 
     @jwt_required()
     def post(self):
@@ -94,5 +94,5 @@ class UpdateUserPassword(Resource):
 
 api.add_resource(Register, '/register')
 api.add_resource(Login, '/login')
-api.add_resource(removeUser, '/removeuser')
+api.add_resource(RemoveUser, '/removeuser')
 api.add_resource(UpdateUserPassword, '/update')

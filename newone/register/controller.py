@@ -15,8 +15,9 @@ def reg_user(new_user):
     print(result)
     return result
 
+
 def rm_user(username):
-    result = client.Employees.Users.delete_one({"username":username})
+    result = client.Employees.Users.delete_one({"username": username})
     print(result)
     print(result.deleted_count)
     return result
