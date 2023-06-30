@@ -788,3 +788,24 @@ b = [4, 5, 6]
 #   i +=i
 #   print(i)
 
+# matrix = [[1, 2, 3],
+#           [4, 5, 6],
+#           [7, 8, 9]]
+# l = []
+# for rows in matrix:
+#     for every_number_in_row in rows:
+#         if every_number_in_row>1:
+#             for num in range(2, every_number_in_row):
+#                 if (every_number_in_row%num) == 0:
+#                     break
+#             else:
+#                 l.append(every_number_in_row)
+#
+# for i in range(len(matrix)):
+#     for j in range(len(matrix[0])):
+#         for k in l:
+#             if matrix[i][j] == k:
+#                 matrix[i][j] = True
+# print(matrix)
+
+
